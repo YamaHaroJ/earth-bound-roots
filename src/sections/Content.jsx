@@ -263,7 +263,7 @@ export function Donate() {
           button on your phone.
         </p>
         <div className="venmo" data-fade>
-          <img src={`${import.meta.env.BASE_URL}images/venmo-qr.png`} alt="Venmo QR code for Tavia Valdez" width="200" height="200" />
+          <img src={`${import.meta.env.BASE_URL}images/venmo-qr-centered.png`} alt="Venmo QR code for Tavia Valdez" width="200" height="200" />
           <a className="btn btn--solid" href={ORG.venmo} target="_blank" rel="noreferrer">
             Donate with Venmo ↗
           </a>
