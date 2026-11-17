@@ -22,7 +22,12 @@ export default function HeroSequence({ progress, onStrike, onBowlHover, rippleRe
     let dead = false
 
     const fit = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      // Draw no larger than the pictures themselves: drawing them at 2x the screen added no detail,
+      // just ~4x the work for the Mac's graphics chip on every scroll frame (it fought VibeBridge for it).
+      const fw = man ? man.width : phone ? 645 : 1600
+      const fh = man ? man.height : phone ? 1398 : 1000
+      const need = Math.max(fw / Math.max(1, el.clientWidth), fh / Math.max(1, el.clientHeight))
+      const dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, need))
       el.width = Math.round(el.clientWidth * dpr)
       el.height = Math.round(el.clientHeight * dpr)
       shown = -1
@@ -116,6 +121,7 @@ export default function HeroSequence({ progress, onStrike, onBowlHover, rippleRe
       .then(async (m) => {
         if (dead) return
         man = m
+        fit()
         frames = new Array(m.count)
         await load(0)
         const seen = new Set([0])
