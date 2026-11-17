@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
 import { ORG } from '../lib/content'
 
+// the site lives at /earth-bound-roots/ on GitHub Pages, so every link starts from the base path
+const BASE = import.meta.env.BASE_URL
+
 export function Logo() {
   return (
     <svg viewBox="0 0 32 32" aria-hidden="true">
@@ -13,10 +16,10 @@ export function Logo() {
 }
 
 const LINKS = [
-  ['/#gatherings', 'Gatherings', 'home'],
-  ['/#practices', 'What to expect', 'home'],
-  ['/practitioners.html', 'Meet your practitioners', 'practitioners'],
-  ['/#rsvp', 'RSVP', 'home'],
+  [`${BASE}#gatherings`, 'Gatherings', 'home'],
+  [`${BASE}#practices`, 'What to expect', 'home'],
+  [`${BASE}practitioners.html`, 'Meet your practitioners', 'practitioners'],
+  [`${BASE}#rsvp`, 'RSVP', 'home'],
 ]
 
 export function Nav({ page }) {
@@ -32,7 +35,7 @@ export function Nav({ page }) {
       <a className="skip" href="#main">
         Skip to content
       </a>
-      <a className="brand" href="/" aria-label={`${ORG.name}, home`}>
+      <a className="brand" href={BASE} aria-label={`${ORG.name}, home`}>
         <Logo />
         {ORG.name}
       </a>
@@ -47,7 +50,7 @@ export function Nav({ page }) {
           ))}
         </ul>
       </nav>
-      <a className="btn btn--small" href="/#rsvp">
+      <a className="btn btn--small" href={`${BASE}#rsvp`}>
         RSVP
       </a>
     </header>
@@ -62,6 +65,9 @@ export function Footer() {
       </span>
       <span>
         <a href={ORG.phoneHref}>Text {ORG.phone}</a> · <a href={`mailto:${ORG.email}`}>{ORG.email}</a>
+      </span>
+      <span className="footer__privacy">
+        Privacy: this site uses no cookies, no tracking and no analytics. RSVPs go from your own phone or email straight to Tavia.
       </span>
     </footer>
   )

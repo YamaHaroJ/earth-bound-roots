@@ -9,7 +9,7 @@ Two pages: the home page (`index.html`) and **Meet your practitioners** (`practi
 npm install
 npm run dev          # http://localhost:5173
 npm run build        # production files in dist/
-npm run preview
+npm run preview      # http://localhost:4173/earth-bound-roots/
 ```
 
 ## Change the words or add a gathering
@@ -32,3 +32,8 @@ Uses the installed Google Chrome (playwright-core, no browser download). Output:
 ## RSVP
 
 Visitors can text or email Tavia directly, or fill in the form, which opens their own text or email app with the message written. Nothing is stored or sent by the site. A real form service can replace it later.
+
+## Live site
+
+https://yamaharoj.github.io/earth-bound-roots/ (GitHub Pages). Every push to `main` rebuilds and publishes it (`.github/workflows/deploy.yml`).
+Fonts are bundled with the site (no Google Fonts), and the site has no cookies, tracking or analytics.
