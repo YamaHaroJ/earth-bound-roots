@@ -45,9 +45,15 @@ export function Nav({ page }) {
         className="nav__toggle"
         aria-expanded={menu}
         aria-controls="main-menu"
+        aria-label={menu ? 'Close menu' : 'Open menu'}
         onClick={() => setMenu((m) => !m)}
       >
-        {menu ? 'Close' : 'Menu'}
+        {/* three lines that turn into an X when open */}
+        <span className="burger" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </span>
       </button>
       <nav aria-label="Main" id="main-menu" className={menu ? 'is-open' : ''}>
         <ul className="nav__links" onClick={() => setMenu(false)}>
