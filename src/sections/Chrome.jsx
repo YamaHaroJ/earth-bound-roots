@@ -1,0 +1,68 @@
+import { useEffect, useState } from 'react'
+import { ORG } from '../lib/content'
+
+export function Logo() {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" strokeOpacity="0.35" />
+      <path d="M16 6.5c-3 4-3 8 0 11.5 3-3.5 3-7.5 0-11.5z" fill="#e9b46a" />
+      <path d="M8.5 20.5c2.5 4.2 12.5 4.2 15 0" stroke="currentColor" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+      <path d="M16 18v7M16 22l-3 3M16 22l3 3" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.6" />
+    </svg>
+  )
+}
+
+const LINKS = [
+  ['/#gatherings', 'Gatherings', 'home'],
+  ['/#practices', 'What to expect', 'home'],
+  ['/practitioners.html', 'Meet your practitioners', 'practitioners'],
+  ['/#rsvp', 'RSVP', 'home'],
+]
+
+export function Nav({ page }) {
+  const [solid, setSolid] = useState(false)
+  useEffect(() => {
+    const on = () => setSolid(window.scrollY > 40)
+    on()
+    window.addEventListener('scroll', on, { passive: true })
+    return () => window.removeEventListener('scroll', on)
+  }, [])
+  return (
+    <header className={`nav${solid ? ' is-solid' : ''}`}>
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+      <a className="brand" href="/" aria-label={`${ORG.name}, home`}>
+        <Logo />
+        {ORG.name}
+      </a>
+      <nav aria-label="Main">
+        <ul className="nav__links">
+          {LINKS.map(([href, label, p]) => (
+            <li key={href}>
+              <a href={href} aria-current={p === page && p === 'practitioners' ? 'page' : undefined}>
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <a className="btn btn--small" href="/#rsvp">
+        RSVP
+      </a>
+    </header>
+  )
+}
+
+export function Footer() {
+  return (
+    <footer className="footer">
+      <span>
+        {ORG.name} · {ORG.city}
+      </span>
+      <span>
+        <a href={ORG.phoneHref}>Text {ORG.phone}</a> · <a href={`mailto:${ORG.email}`}>{ORG.email}</a>
+      </span>
+    </footer>
+  )
+}
