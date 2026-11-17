@@ -59,17 +59,17 @@ export default function Hero() {
       </button>
       <div className="hero__copy">
         <h1 className="display hero__title">
-          <Words text="A gentle place for *grief* to land." />
+          <Words text="A gentle place to *land.*" />
         </h1>
         <p className="lede" data-in>
           {ORG.tagline} Gatherings held in compassion and witnessed in community, in {ORG.city}.
         </p>
         <div className="hero__actions" data-in>
-          <a className="btn btn--solid" href="#gatherings" onClick={(e) => (e.preventDefault(), scrollToTarget('#gatherings'))}>
-            See upcoming gatherings
+          <a className="btn btn--solid" href={`${import.meta.env.BASE_URL}calendar.html`}>
+            Find your circle
           </a>
-          <a className="btn" href="#rsvp" onClick={(e) => (e.preventDefault(), scrollToTarget('#rsvp'))}>
-            RSVP
+          <a className="btn" href="#practices" onClick={(e) => (e.preventDefault(), scrollToTarget('#practices'))}>
+            What to expect
           </a>
         </div>
       </div>

@@ -16,11 +16,10 @@ export function Logo() {
 }
 
 const LINKS = [
-  [`${BASE}#gatherings`, 'Gatherings', 'home'],
+  [`${BASE}calendar.html`, 'Find your circle', 'calendar'],
   [`${BASE}#practices`, 'What to expect', 'home'],
   [`${BASE}practitioners.html`, 'Meet your practitioners', 'practitioners'],
   [`${BASE}donate.html`, 'Donate', 'donate'],
-  [`${BASE}#rsvp`, 'RSVP', 'home'],
 ]
 
 export function Nav({ page }) {
@@ -67,8 +66,8 @@ export function Nav({ page }) {
           ))}
         </ul>
       </nav>
-      <a className="btn btn--small nav__rsvp" href={`${BASE}#rsvp`}>
-        RSVP
+      <a className="btn btn--small nav__rsvp" href={`${BASE}calendar.html`}>
+        Save a spot
       </a>
     </header>
   )

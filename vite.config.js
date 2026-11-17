@@ -14,6 +14,7 @@ export default defineConfig(({ command, isPreview }) => ({
         main: resolve(import.meta.dirname, 'index.html'),
         practitioners: resolve(import.meta.dirname, 'practitioners.html'),
         donate: resolve(import.meta.dirname, 'donate.html'),
+        calendar: resolve(import.meta.dirname, 'calendar.html'),
       },
     },
   },

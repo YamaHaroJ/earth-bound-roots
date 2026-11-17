@@ -1,6 +1,6 @@
 # Earth Bound Roots — working rules
 
-- What: website for Tavia Valdez's grief-gathering nonprofit. Kara Yeates helps (sound bath, reiki) and appears on "Meet your practitioners".
+- What: website for Tavia Valdez's nonprofit of gentle themed circles (grief is one theme; keep site-wide wording theme-neutral). Kara Yeates helps (sound bath, reiki) and appears on "Meet your practitioners".
 - Words and gatherings: `src/lib/content.js` only. The bios and practice descriptions are drafts written by Claude; Tavia must approve them.
 - 3D standard: the Three.js scene is recorded into pictures (`npm run capture`, 320 desktop / 240 phone frames). Never ship live WebGL to visitors; the 3D code loads only in `?capture=1`. Re-record after any scene change.
 - Look: forest green, candle amber, linen, clay. Fonts Young Serif + Hanken Grotesk. Calm, slow motion; respect reduced motion.

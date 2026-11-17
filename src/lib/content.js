@@ -2,7 +2,7 @@
 
 export const ORG = {
   name: 'Earth Bound Roots',
-  tagline: 'Honoring grief through gentle movement, breath, reiki and sound.',
+  tagline: 'Gentle circles of movement, breath, reiki and sound.',
   phone: '801-675-0634',
   phoneHref: 'sms:+18016750634',
   callHref: 'tel:+18016750634',
@@ -33,7 +33,7 @@ export const GATHERINGS = [
 ]
 
 export const PRACTICES = [
-  { name: 'Gentle movement', text: 'Slow, kind movement that lets the body take part in grieving, at whatever pace it asks for.' },
+  { name: 'Gentle movement', text: 'Slow, kind movement that lets the body take part in healing, at whatever pace it asks for.' },
   { name: 'Breath', text: 'Simple breathing that steadies the nervous system and makes room for what you are feeling.' },
   { name: 'Reiki', text: 'Quiet, hands-light energy work offered to help you rest and feel held.' },
   { name: 'Sound', text: 'Singing bowls and soft sound to settle the mind and let the body soften.' },
@@ -48,7 +48,7 @@ export const PRACTITIONERS = [
     photoAlt: 'Tavia Valdez among trees, hands together at her heart',
     focus: '50% 30%',
     roles: ['Licensed Clinical Social Worker', 'Grief informed', 'Reiki practitioner'],
-    bio: 'Tavia founded Earth Bound Roots to give grief a gentle place to land. She brings clinical care, a grief-informed approach and reiki to every gathering.',
+    bio: 'Tavia founded Earth Bound Roots to give people a gentle place to land. She brings clinical care, a grief-informed approach and reiki to every circle.',
     contact: true,
   },
   {
