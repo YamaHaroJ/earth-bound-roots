@@ -259,8 +259,15 @@ export function Donate() {
           <Words text="Donation based. *Give* what you can." />
         </h2>
         <p className="body" data-fade>
-          No one is turned away. Donations can be made by Venmo at the gathering, and they help keep these circles open.
+          No one is turned away. Donations help keep these circles open. Scan the code with your phone's camera, or tap the
+          button on your phone.
         </p>
+        <div className="venmo" data-fade>
+          <img src={`${import.meta.env.BASE_URL}images/venmo-qr.png`} alt="Venmo QR code for Tavia Valdez" width="200" height="200" />
+          <a className="btn btn--solid" href={ORG.venmo} target="_blank" rel="noreferrer">
+            Donate with Venmo ↗
+          </a>
+        </div>
       </div>
     </section>
   )

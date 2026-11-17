@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useRef, useState } from 'react'
+import { useCallback, useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { Words } from '../lib/anim'
 import { reduced, scrollToTarget } from '../lib/scroll'
@@ -12,7 +12,7 @@ import HeroSequence from './HeroSequence'
 export default function Hero() {
   const ref = useRef()
   const progress = useRef(0)
-  const [struck, setStruck] = useState(false)
+  const ripple = useRef(null)
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -38,20 +38,25 @@ export default function Hero() {
     return () => ctx.revert()
   }, [])
 
-  const onStrike = useCallback(() => {
+  const onStrike = useCallback(() => strikeBowl(), [])
+  const ringButton = () => {
     strikeBowl()
-    setStruck(true)
-  }, [])
+    ripple.current?.()
+  }
 
   return (
     <section ref={ref} className="hero" aria-label="Welcome">
       <div className="hero__scene">
         <div className="hero__fallback" />
-        <HeroSequence progress={progress} onStrike={onStrike} />
+        <HeroSequence progress={progress} onStrike={onStrike} rippleRef={ripple} />
       </div>
-      <p className="bowl-hint" style={{ opacity: struck ? 0 : 1 }} data-in>
-        Click the bowl to let it ring
-      </p>
+      <button type="button" className="bowl-hint" onClick={ringButton} data-in>
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M3 9h14c0 4-3 7-7 7s-7-3-7-7z" fill="currentColor" />
+          <path d="M14.5 4.5c1 .8 1.6 1.9 1.6 3M16.8 2.5c1.6 1.3 2.5 3 2.5 5" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+        </svg>
+        Ring the bowl
+      </button>
       <div className="hero__copy">
         <h1 className="display hero__title">
           <Words text="A gentle place for *grief* to land." />

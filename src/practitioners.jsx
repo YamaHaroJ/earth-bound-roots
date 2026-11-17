@@ -22,13 +22,14 @@ function Practitioners() {
       <div className="wrap people" style={{ marginTop: 'var(--s-5)' }}>
         {PRACTITIONERS.map((p) => (
           <article className="person" key={p.id} id={p.id} data-fade>
-            <div className="person__portrait" role="img" aria-label={`Portrait of ${p.name} (photo coming soon)`}>
-              <span className="person__initials" aria-hidden="true">
-                {p.initials}
-              </span>
-              <span className="person__photo-note" aria-hidden="true">
-                Photo coming soon
-              </span>
+            <div className="person__portrait">
+              {p.photo ? (
+                <img src={`${import.meta.env.BASE_URL}${p.photo}`} alt={p.photoAlt} style={{ objectPosition: p.focus }} loading="lazy" />
+              ) : (
+                <span className="person__initials" aria-hidden="true">
+                  {p.initials}
+                </span>
+              )}
             </div>
             <h2>{p.name}</h2>
             <ul className="roles" aria-label="Roles">

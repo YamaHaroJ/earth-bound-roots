@@ -6,7 +6,7 @@ import gsap from 'gsap'
 // The recording also saved where the bowl is in every picture, so clicking it still rings the bowl.
 const STRIDES = [32, 16, 8, 4, 2, 1]
 
-export default function HeroSequence({ progress, onStrike, onBowlHover }) {
+export default function HeroSequence({ progress, onStrike, onBowlHover, rippleRef }) {
   const canvas = useRef()
   const ripples = useRef()
 
@@ -93,6 +93,8 @@ export default function HeroSequence({ progress, onStrike, onBowlHover }) {
         setTimeout(() => ring.remove(), 4600 + i * 350)
       }
     }
+    // the "Ring the bowl" button sends ripples from wherever the bowl is right now
+    if (rippleRef) rippleRef.current = () => { const b = bowlAt(); if (b) ripple(b) }
     const onClick = (e) => {
       const b = hit(e)
       if (b) (ripple(b), onStrike?.())
@@ -136,7 +138,7 @@ export default function HeroSequence({ progress, onStrike, onBowlHover }) {
       el.removeEventListener('pointermove', onMove)
       gsap.ticker.remove(draw)
     }
-  }, [progress, onStrike, onBowlHover])
+  }, [progress, onStrike, onBowlHover, rippleRef])
 
   return (
     <>
