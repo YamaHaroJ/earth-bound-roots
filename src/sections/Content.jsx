@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Words, useSectionMotion } from '../lib/anim'
-import { ORG, PRACTICES, upcoming, GATHERINGS } from '../lib/content'
+import { ORG, PRACTICES, PRACTITIONERS, upcoming, GATHERINGS } from '../lib/content'
 
 export function Intro() {
   const ref = useRef()
@@ -267,6 +267,38 @@ export function Donate() {
           <a className="btn btn--solid" href={ORG.venmo} target="_blank" rel="noreferrer">
             Donate with Venmo ↗
           </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// A short "Meet your practitioners" teaser on the home page, linking to their own page.
+export function MeetTeaser() {
+  const ref = useRef()
+  useSectionMotion(ref)
+  const page = `${import.meta.env.BASE_URL}practitioners.html`
+  return (
+    <section ref={ref} className="section" id="practitioners">
+      <div className="wrap teaser">
+        <div className="teaser__head">
+          <h2 className="display" data-reveal>
+            <Words text="Meet your *practitioners*" />
+          </h2>
+          <a className="btn" href={page} data-fade>
+            Meet Tavia and Kara →
+          </a>
+        </div>
+        <div className="teaser__people">
+          {PRACTITIONERS.map((p) => (
+            <a className="teaser__person" href={`${page}#${p.id}`} key={p.id} data-fade>
+              <img src={`${import.meta.env.BASE_URL}${p.photo}`} alt={p.photoAlt} style={{ objectPosition: p.focus }} loading="lazy" />
+              <span>
+                <strong>{p.name}</strong>
+                <small>{p.roles[0]}</small>
+              </span>
+            </a>
+          ))}
         </div>
       </div>
     </section>

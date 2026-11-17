@@ -24,6 +24,7 @@ const LINKS = [
 
 export function Nav({ page }) {
   const [solid, setSolid] = useState(false)
+  const [menu, setMenu] = useState(false)
   useEffect(() => {
     const on = () => setSolid(window.scrollY > 40)
     on()
@@ -39,8 +40,17 @@ export function Nav({ page }) {
         <Logo />
         {ORG.name}
       </a>
-      <nav aria-label="Main">
-        <ul className="nav__links">
+      <button
+        type="button"
+        className="nav__toggle"
+        aria-expanded={menu}
+        aria-controls="main-menu"
+        onClick={() => setMenu((m) => !m)}
+      >
+        {menu ? 'Close' : 'Menu'}
+      </button>
+      <nav aria-label="Main" id="main-menu" className={menu ? 'is-open' : ''}>
+        <ul className="nav__links" onClick={() => setMenu(false)}>
           {LINKS.map(([href, label, p]) => (
             <li key={href}>
               <a href={href} aria-current={p === page && p === 'practitioners' ? 'page' : undefined}>
@@ -50,7 +60,7 @@ export function Nav({ page }) {
           ))}
         </ul>
       </nav>
-      <a className="btn btn--small" href={`${BASE}#rsvp`}>
+      <a className="btn btn--small nav__rsvp" href={`${BASE}#rsvp`}>
         RSVP
       </a>
     </header>
