@@ -404,7 +404,7 @@ main { position: relative; z-index: 2; }
 /* calendar page ("Find your circle") */
 .cal-page { padding-top: 0; }
 .cal { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: var(--s-5); align-items: start; margin-top: var(--s-5); }
-.cal__month { display: grid; gap: var(--s-3); padding: clamp(1rem, 0.6rem + 1.5vw, 2rem); border-radius: var(--radius); background: var(--forest-2); border: 1px solid var(--line-dark); }
+.cal__month { position: sticky; top: 90px; display: grid; gap: var(--s-3); padding: clamp(1rem, 0.6rem + 1.5vw, 2rem); border-radius: var(--radius); background: var(--forest-2); border: 1px solid var(--line-dark); }
 .cal__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); }
 .cal__title { margin: 0; font-family: var(--serif); font-weight: 400; font-size: var(--t-lg); }
 .cal__nav {
@@ -451,7 +451,7 @@ main { position: relative; z-index: 2; }
 .day-panel__event .body { color: var(--linen-2); }
 .day-panel__empty { display: grid; gap: var(--s-2); padding: clamp(1.25rem, 1rem + 1.5vw, 2.25rem); border-radius: var(--radius); border: 1px dashed var(--line-dark); }
 .day-panel .form { color: var(--ink); }
-.day-panel .form a { color: var(--clay-deep); }
+.day-panel .form a { color: #6b4128; }
 
 /* phone menu */
 .nav__toggle { display: none; }
@@ -509,6 +509,7 @@ main { position: relative; z-index: 2; }
   .form__row { grid-template-columns: minmax(0, 1fr); }
   .practice { grid-template-columns: 2.5rem minmax(0, 1fr); }
   .cal { grid-template-columns: minmax(0, 1fr); }
+  .cal__month { position: static; }
   .practice p { grid-column: 2; }
   .hero__later { display: none; }
 }
