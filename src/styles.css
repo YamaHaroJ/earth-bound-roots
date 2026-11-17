@@ -399,22 +399,6 @@ main { position: relative; z-index: 2; }
 .roles li { padding: 0.35rem 0.8rem; border-radius: 999px; border: 1px solid var(--line-dark); font-size: var(--t-xs); color: var(--amber-soft); }
 
 
-/* home teaser for the practitioners page */
-.teaser { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--s-5); align-items: center; }
-.teaser__head { display: grid; gap: var(--s-3); justify-items: start; }
-.teaser__people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-3); align-items: start; }
-.teaser__person { display: grid; gap: var(--s-2); text-decoration: none; }
-.teaser__person img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 999px 999px var(--radius) var(--radius);
-  transition: transform 0.7s var(--ease), filter 0.5s;
-}
-.teaser__person:hover img { transform: translateY(-6px); filter: brightness(1.06); }
-.teaser__person strong { display: block; font-family: var(--serif); font-weight: 400; font-size: var(--t-lg); }
-.teaser__person small { color: var(--sage); font-size: var(--t-xs); }
-
 /* phone menu */
 .nav__toggle { display: none; }
 
@@ -463,7 +447,6 @@ main { position: relative; z-index: 2; }
   #main-menu.is-open { display: block; }
   .nav__links { flex-direction: column; gap: 0; }
   .nav__links a { display: block; padding: 0.85rem 0; font-size: var(--t-md); background: none; border-bottom: 1px solid var(--line-dark); }
-  .teaser { grid-template-columns: minmax(0, 1fr); }
   .intro,
   .gatherings__grid,
   .rsvp__grid,
