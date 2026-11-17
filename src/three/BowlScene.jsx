@@ -8,6 +8,8 @@ import { capture, captureDpr, clock as capClock, timeOf } from '../lib/capture'
 const reduced = still || capture
 
 const damp = THREE.MathUtils.damp
+const NARROW_LIFT = Number(new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '').get('lift') ?? -1.3)
+const NARROW_BACK = Number(new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '').get('back') ?? 1.9)
 
 // Light on purpose: the scene only draws while it is on screen, about 30 times a second,
 // at no more than 1.25x pixels. The rest of the site is plain HTML.
@@ -29,12 +31,13 @@ function Rig({ progress }) {
   useFrame((state, delta) => {
     const p = progress.current
     const narrow = size.width < 820
-    const back = narrow ? 1.45 : 1
+    const back = narrow ? NARROW_BACK : 1
     // from a wide view of the candles down toward the bowl
     const x = THREE.MathUtils.lerp(0.2, 0.5, p) + (reduced ? 0 : state.pointer.x * 0.35)
     const y = THREE.MathUtils.lerp(2.4, 4.6, p) + (reduced ? 0 : state.pointer.y * 0.15)
     const z = THREE.MathUtils.lerp(7.2, 2.4, p) * back
-    look.set(0, THREE.MathUtils.lerp(0.7, 0.25, p) + (narrow ? 0.5 : 0), 0)
+    // phones: text covers the lower half, so aim lower to lift the bowl into the top of the screen
+    look.set(0, THREE.MathUtils.lerp(0.7, 0.25, p) + (narrow ? NARROW_LIFT : 0), 0)
     const k = capture ? 1 : 1 - Math.exp(-Math.min(delta, 0.1) * 4)
     camera.position.lerp(goal.set(x, y, z), k)
     now.current.lerp(look, k)
@@ -128,17 +131,23 @@ const CANDLES = [
   { position: [2.1, 0, -1.3], height: 1.05 },
   { position: [2.9, 0, 0.5], height: 0.7 },
 ]
+// phones are narrow, so the candles stand closer in around the bowl
+const CANDLES_NARROW = [
+  { position: [-1.3, 0, -1.5], height: 1.45 },
+  { position: [1.25, 0, -1.9], height: 1.05 },
+  { position: [1.55, 0, -0.4], height: 0.7 },
+]
 
-function Embers() {
+function Embers({ candles }) {
   const count = 90
   const geo = useRef()
   const seeds = useMemo(
     () =>
       Array.from({ length: count }, () => {
-        const c = CANDLES[Math.floor(Math.random() * CANDLES.length)]
+        const c = candles[Math.floor(Math.random() * candles.length)]
         return { c, off: Math.random(), speed: 0.05 + Math.random() * 0.08, sway: Math.random() * 6 }
       }),
-    [],
+    [candles],
   )
   const positions = useMemo(() => new Float32Array(count * 3), [])
   useFrame((state) => {
@@ -190,6 +199,10 @@ function Ripples({ strikes }) {
 function Scene({ progress, onStrike, active }) {
   const strikes = useRef({ last: -100 })
   const clock = useThree((s) => s.clock)
+  // phones use a farther camera, so the fog has to start and end farther away too
+  const narrow = useThree((s) => s.size.width < 820)
+  const far = narrow ? NARROW_BACK : 1
+  const candles = narrow ? CANDLES_NARROW : CANDLES
   const strike = () => {
     strikes.current.last = clock.elapsedTime
     onStrike?.()
@@ -197,7 +210,7 @@ function Scene({ progress, onStrike, active }) {
   return (
     <>
       <color attach="background" args={['#1c2620']} />
-      <fog attach="fog" args={['#1c2620', 7, 16]} />
+      <fog attach="fog" args={['#1c2620', 7 * far, 16 * far]} />
       <Ticker active={active} />
       <Rig progress={progress} />
       <ambientLight intensity={0.25} color="#cfd9c4" />
@@ -218,10 +231,10 @@ function Scene({ progress, onStrike, active }) {
         <meshStandardMaterial color="#5a3a2c" roughness={0.95} />
       </mesh>
       <Bowl onStrike={strike} strikes={strikes} />
-      {CANDLES.map((c, i) => (
+      {candles.map((c, i) => (
         <Candle key={i} {...c} />
       ))}
-      <Embers />
+      <Embers candles={candles} />
       <Ripples strikes={strikes} />
     </>
   )
