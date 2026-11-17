@@ -19,6 +19,7 @@ const LINKS = [
   [`${BASE}#gatherings`, 'Gatherings', 'home'],
   [`${BASE}#practices`, 'What to expect', 'home'],
   [`${BASE}practitioners.html`, 'Meet your practitioners', 'practitioners'],
+  [`${BASE}donate.html`, 'Donate', 'donate'],
   [`${BASE}#rsvp`, 'RSVP', 'home'],
 ]
 
@@ -59,7 +60,7 @@ export function Nav({ page }) {
         <ul className="nav__links" onClick={() => setMenu(false)}>
           {LINKS.map(([href, label, p]) => (
             <li key={href}>
-              <a href={href} aria-current={p === page && p === 'practitioners' ? 'page' : undefined}>
+              <a href={href} aria-current={p === page && p !== 'home' ? 'page' : undefined}>
                 {label}
               </a>
             </li>

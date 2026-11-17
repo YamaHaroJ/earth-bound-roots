@@ -7,7 +7,7 @@ import 'lenis/dist/lenis.css'
 import './styles.css'
 import Shell from './sections/Shell'
 import Hero from './sections/Hero'
-import { Intro, Practices, Gatherings, Rsvp, Donate } from './sections/Content'
+import { Intro, Practices, Gatherings, Rsvp } from './sections/Content'
 import { capture } from './lib/capture'
 
 // ?capture=1 shows only the live 3D scene, for recording the pictures (the 3D code is never loaded otherwise)
@@ -26,7 +26,6 @@ createRoot(document.getElementById('root')).render(
       <Practices />
       <Gatherings />
       <Rsvp />
-      <Donate />
     </Shell>
   </StrictMode>
   ),

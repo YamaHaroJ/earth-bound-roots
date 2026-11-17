@@ -1,7 +1,7 @@
 # Earth Bound Roots
 
 Website for Tavia Valdez's nonprofit, Earth Bound Roots: gentle grief gatherings in South Ogden, Utah (movement, breath, reiki, sound).
-Two pages: the home page (`index.html`) and **Meet your practitioners** (`practitioners.html`).
+Three pages: home (`index.html`), **Meet your practitioners** (`practitioners.html`) and **Donate** (`donate.html`).
 
 ## Run
 

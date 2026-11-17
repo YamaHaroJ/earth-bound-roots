@@ -356,6 +356,7 @@ main { position: relative; z-index: 2; }
 /* donate */
 .donate { text-align: center; display: grid; justify-items: center; gap: var(--s-3); }
 .donate .display { max-width: 16ch; }
+.donate-page { min-height: 100vh; min-height: 100dvh; padding-top: calc(var(--s-6) + 2rem); }
 .venmo { display: grid; justify-items: center; gap: var(--s-3); margin-top: var(--s-2); }
 .venmo img { width: 200px; height: 200px; padding: 12px; border-radius: 18px; background: #fff; }
 

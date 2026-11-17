@@ -93,7 +93,11 @@ function EventCard({ g }) {
         </div>
         <div>
           <dt>Cost</dt>
-          <dd>{g.price}</dd>
+          <dd>
+            {g.price}
+            <br />
+            <a href={`${import.meta.env.BASE_URL}donate.html`}>Donate by Venmo</a>
+          </dd>
         </div>
       </dl>
       <p className="note">{g.note}</p>
@@ -253,11 +257,11 @@ export function Donate() {
   const ref = useRef()
   useSectionMotion(ref)
   return (
-    <section ref={ref} className="section" id="donate">
+    <section ref={ref} className="section donate-page" id="donate">
       <div className="wrap donate">
-        <h2 className="display" data-reveal>
+        <h1 className="display" data-reveal>
           <Words text="Donation based. *Give* what you can." />
-        </h2>
+        </h1>
         <p className="body" data-fade>
           No one is turned away. Donations help keep these circles open. Scan the code with your phone's camera, or tap the
           button on your phone.

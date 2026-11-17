@@ -13,6 +13,7 @@ export default defineConfig(({ command, isPreview }) => ({
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
         practitioners: resolve(import.meta.dirname, 'practitioners.html'),
+        donate: resolve(import.meta.dirname, 'donate.html'),
       },
     },
   },
