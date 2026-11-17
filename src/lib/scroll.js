@@ -8,6 +8,12 @@ gsap.registerPlugin(ScrollTrigger)
 export const reduced =
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+// No smooth-scroll glide by default (Jay, 2026-11-17): Lenis lets the page catch up to the scroll
+// over ~0.5 s, and seen through VibeBridge that delay stacked on the stream's own, so scrolling felt
+// late and the picture trailed behind. He compared both and the plain scroll felt less behind.
+// ?glide turns it back on.
+const native = typeof window === 'undefined' || !new URLSearchParams(window.location.search).has('glide')
+
 // p: 0 at the top of the page, 1 at the bottom
 export const scroll = { p: 0, y: 0, max: 1 }
 
@@ -21,7 +27,7 @@ function read() {
 
 export function startScroll() {
   let tick = null
-  if (!reduced) {
+  if (!reduced && !native) {
     lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 0.9, touchMultiplier: 1.4 })
     lenis.on('scroll', () => {
       ScrollTrigger.update()
@@ -47,5 +53,5 @@ export function startScroll() {
 
 export function scrollToTarget(target) {
   if (lenis) lenis.scrollTo(target, { duration: 1.8, easing: (t) => 1 - Math.pow(1 - t, 4) })
-  else document.querySelector(target)?.scrollIntoView()
+  else document.querySelector(target)?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' })
 }
