@@ -25,7 +25,7 @@ export const GATHERINGS = [
     mapHref: 'https://maps.apple.com/?q=1708+E+5550+S+Suite+19,+South+Ogden,+UT+84403',
     summary:
       'A space to gather in the presence of grief — to honor what we carry, held in compassion and witnessed in community.',
-    practices: ['Gentle movement', 'Breath', 'Reiki', 'Sound bath'],
+    practices: ['Gentle Movement', 'Breath', 'Reiki', 'Sound'],
     bring: ['Water', 'A small pillow', 'A blanket', 'An item that has meaning to you'],
     price: 'Donation based — give what you can',
     note: 'Space is limited. Please RSVP.',
@@ -41,7 +41,7 @@ export const GATHERINGS = [
     mapHref: 'https://maps.apple.com/?q=1708+E+5550+S+Suite+19,+South+Ogden,+UT+84403',
     summary:
       "A gentle circle for everything Mother's Day can hold: celebrating, missing, longing and grieving. Mothers, anyone missing their mother, and anyone carrying a loss around motherhood are welcome.",
-    practices: ['Gentle movement', 'Breath', 'Reiki', 'Sound bath'],
+    practices: ['Gentle Movement', 'Breath', 'Reiki', 'Sound'],
     bring: ['Water', 'A small pillow', 'A blanket', 'An item that has meaning to you'],
     price: 'Donation based — give what you can',
     note: 'Space is limited. Please RSVP.',
@@ -50,7 +50,7 @@ export const GATHERINGS = [
 
 export const PRACTICES = [
   // Tavia's own wording (2026-11-17)
-  { name: 'Gentle movement', text: 'Slow, mindful movement that invites you to reconnect with your body, release tension, and move in a way that feels good for you.' },
+  { name: 'Gentle Movement', text: 'Slow, mindful movement that invites you to reconnect with your body, release tension, and move in a way that feels good for you.' },
   { name: 'Breath', text: 'Simple, guided breathing to help you slow down, settle your nervous system, and make space for whatever you may be feeling.' },
   { name: 'Reiki', text: 'Gentle energy work offered through light touch or hands held above the body, creating space for rest, relaxation, and receiving.' },
   { name: 'Sound', text: 'Singing bowls and soothing sounds invite you to quiet the mind, soften the body, and settle into a deeper sense of rest.' },

@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { Words } from '../lib/anim'
 import { reduced, scrollToTarget } from '../lib/scroll'
 import { strikeBowl } from '../lib/bowlSound'
-import { ORG } from '../lib/content'
+import { ORG, COME_AS_YOU_ARE } from '../lib/content'
 
 import HeroSequence from './HeroSequence'
 
@@ -73,9 +73,10 @@ export default function Hero() {
           </a>
         </div>
       </div>
-      <p className="hero__later" aria-hidden="true">
-        Come as you are. Bring what you carry.
-      </p>
+      <div className="hero__later">
+        <p>Come as you are. Bring what you carry.</p>
+        <p className="hero__later-more">{COME_AS_YOU_ARE}</p>
+      </div>
     </section>
   )
 }

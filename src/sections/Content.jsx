@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { Words, useSectionMotion } from '../lib/anim'
-import { ORG, PRACTICES, COME_AS_YOU_ARE } from '../lib/content'
+import { ORG, PRACTICES } from '../lib/content'
 
 export function Intro() {
   const ref = useRef()
@@ -36,9 +36,6 @@ export function Practices() {
         <h2 className="display" data-reveal>
           <Words text="What a gathering *holds*" />
         </h2>
-        <p className="lede" data-fade style={{ marginTop: 'var(--s-3)' }}>
-          <strong style={{ fontWeight: 600 }}>Come as you are.</strong> {COME_AS_YOU_ARE}
-        </p>
         <ol className="practices">
           {PRACTICES.map((p, i) => (
             <li className="practice" key={p.name} data-fade>
