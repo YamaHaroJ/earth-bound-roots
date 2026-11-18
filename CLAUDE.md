@@ -6,5 +6,5 @@
 - Look: forest green, candle amber, linen, clay. Fonts Young Serif + Hanken Grotesk. Calm, slow motion; respect reduced motion.
 - RSVP form only composes a text/email; it stores nothing. Ask before adding any form service, analytics or sign-up (launch-legal-check).
 - Before showing: build, check laptop and phone widths, `npx impeccable detect` on the running site.
-- Photos (public/images) are 360px-wide phone screenshots; full-size originals would look sharper. Venmo link decoded from her QR code.
+- Photos: tavia-2.jpg and kara-2.jpg are full-size originals (960x1200, metadata stripped). Venmo link decoded from her QR code.
 - Tavia supplied her own wording for the 4 practices and the "Come as you are" line (2026-11-17); both bios are still drafts.
