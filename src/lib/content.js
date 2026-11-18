@@ -49,11 +49,14 @@ export const GATHERINGS = [
 ]
 
 export const PRACTICES = [
-  { name: 'Gentle movement', text: 'Slow, kind movement that lets the body take part in healing, at whatever pace it asks for.' },
-  { name: 'Breath', text: 'Simple breathing that steadies the nervous system and makes room for what you are feeling.' },
-  { name: 'Reiki', text: 'Quiet, hands-light energy work offered to help you rest and feel held.' },
-  { name: 'Sound', text: 'Singing bowls and soft sound to settle the mind and let the body soften.' },
+  // Tavia's own wording (2026-11-17)
+  { name: 'Gentle movement', text: 'Slow, mindful movement that invites you to reconnect with your body, release tension, and move in a way that feels good for you.' },
+  { name: 'Breath', text: 'Simple, guided breathing to help you slow down, settle your nervous system, and make space for whatever you may be feeling.' },
+  { name: 'Reiki', text: 'Gentle energy work offered through light touch or hands held above the body, creating space for rest, relaxation, and receiving.' },
+  { name: 'Sound', text: 'Singing bowls and soothing sounds invite you to quiet the mind, soften the body, and settle into a deeper sense of rest.' },
 ]
+
+export const COME_AS_YOU_ARE = 'Each gathering offers a different way to slow down, reconnect, and care for yourself. A gentle space to pause, breathe, and simply be.'
 
 export const PRACTITIONERS = [
   {
@@ -63,7 +66,7 @@ export const PRACTITIONERS = [
     photo: 'images/tavia-2.jpg',
     photoAlt: 'Tavia Valdez smiling, kneeling among trees and green plants',
     focus: '50% 22%',
-    roles: ['Licensed Clinical Social Worker', 'Yoga instructor', 'Grief informed', 'Reiki practitioner'],
+    roles: ['Licensed Clinical Social Worker', 'Grief informed', 'Reiki practitioner', 'Yoga instructor'],
     bio: 'Tavia founded Earth Bound Roots to give people a gentle place to land. She brings clinical care, yoga, a grief-informed approach and reiki to every circle.',
     contact: true,
   },
@@ -74,8 +77,8 @@ export const PRACTITIONERS = [
     photo: 'images/kara.jpg',
     photoAlt: 'Kara Yeates kneeling among crystal singing bowls and candles',
     focus: '50% 35%',
-    roles: ['Sound bath facilitator', 'Reiki practitioner'],
-    bio: 'Kara holds the sound in our gatherings — singing bowls and soft tones that help the body rest — and offers reiki alongside Tavia.',
+    roles: ['Sound bath facilitator', 'Reiki practitioner', 'Yoga instructor'],
+    bio: 'Kara holds the sound in our gatherings — singing bowls and soft tones that help the body rest — and offers reiki and yoga alongside Tavia.',
   },
 ]
 

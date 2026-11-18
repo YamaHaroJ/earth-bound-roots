@@ -7,4 +7,4 @@
 - RSVP form only composes a text/email; it stores nothing. Ask before adding any form service, analytics or sign-up (launch-legal-check).
 - Before showing: build, check laptop and phone widths, `npx impeccable detect` on the running site.
 - Photos (public/images) are 360px-wide phone screenshots; full-size originals would look sharper. Venmo link decoded from her QR code.
-- Missing from Tavia: approval of the drafted bios.
+- Tavia supplied her own wording for the 4 practices and the "Come as you are" line (2026-11-17); both bios are still drafts.
