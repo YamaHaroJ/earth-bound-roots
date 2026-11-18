@@ -30,6 +30,22 @@ export const GATHERINGS = [
     price: 'Donation based — give what you can',
     note: 'Space is limited. Please RSVP.',
   },
+  {
+    id: '2027-05-08',
+    title: "Mother's Day Circle",
+    date: '2027-05-08T15:00:00-06:00',
+    dateLabel: 'Saturday, May 8',
+    timeLabel: '3:00 PM',
+    place: '1708 E. 5550 S., Suite 19',
+    town: 'South Ogden, UT 84403',
+    mapHref: 'https://maps.apple.com/?q=1708+E+5550+S+Suite+19,+South+Ogden,+UT+84403',
+    summary:
+      "A gentle circle for everything Mother's Day can hold: celebrating, missing, longing and grieving. Mothers, anyone missing their mother, and anyone carrying a loss around motherhood are welcome.",
+    practices: ['Gentle movement', 'Breath', 'Reiki', 'Sound bath'],
+    bring: ['Water', 'A small pillow', 'A blanket', 'An item that has meaning to you'],
+    price: 'Donation based — give what you can',
+    note: 'Space is limited. Please RSVP.',
+  },
 ]
 
 export const PRACTICES = [
@@ -47,8 +63,8 @@ export const PRACTITIONERS = [
     photo: 'images/tavia.jpg',
     photoAlt: 'Tavia Valdez among trees, hands together at her heart',
     focus: '50% 30%',
-    roles: ['Licensed Clinical Social Worker', 'Grief informed', 'Reiki practitioner'],
-    bio: 'Tavia founded Earth Bound Roots to give people a gentle place to land. She brings clinical care, a grief-informed approach and reiki to every circle.',
+    roles: ['Licensed Clinical Social Worker', 'Yoga instructor', 'Grief informed', 'Reiki practitioner'],
+    bio: 'Tavia founded Earth Bound Roots to give people a gentle place to land. She brings clinical care, yoga, a grief-informed approach and reiki to every circle.',
     contact: true,
   },
   {

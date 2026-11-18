@@ -22,12 +22,9 @@ export default function HeroSequence({ progress, onStrike, onBowlHover, rippleRe
     let dead = false
 
     const fit = () => {
-      // Draw no larger than the pictures themselves: drawing them at 2x the screen added no detail,
-      // just ~4x the work for the Mac's graphics chip on every scroll frame (it fought VibeBridge for it).
-      const fw = man ? man.width : phone ? 645 : 1600
-      const fh = man ? man.height : phone ? 1398 : 1000
-      const need = Math.max(fw / Math.max(1, el.clientWidth), fh / Math.max(1, el.clientHeight))
-      const dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, need))
+      // the screen's own pixel ratio (drawing at picture size let the browser stretch it on Retina screens,
+      // which looked worse on the VibeBridge site)
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
       el.width = Math.round(el.clientWidth * dpr)
       el.height = Math.round(el.clientHeight * dpr)
       shown = -1
@@ -44,9 +41,18 @@ export default function HeroSequence({ progress, onStrike, onBowlHover, rippleRe
       }
       return null
     }
-    const draw = () => {
+    // wheel clicks jump the page; the picture glides to the new spot (~0.1 s) through the in-between pictures
+    let shownP = -1
+    let lastT = 0
+    const draw = (time) => {
       if (!man) return
-      current = Math.min(man.count - 1, Math.max(0, Math.round(progress.current * (man.count - 1))))
+      const now = typeof time === 'number' ? time * 1000 : performance.now()
+      const dt = lastT ? Math.min(0.1, (now - lastT) / 1000) : 0
+      lastT = now
+      if (shownP < 0) shownP = progress.current
+      else shownP += (progress.current - shownP) * (1 - Math.exp(-dt / 0.045))
+      if (Math.abs(progress.current - shownP) < 0.0004) shownP = progress.current
+      current = Math.min(man.count - 1, Math.max(0, Math.round(shownP * (man.count - 1))))
       const f = nearest(current)
       if (!f || f.index === shown) return
       shown = f.index

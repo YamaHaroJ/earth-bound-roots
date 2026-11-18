@@ -255,6 +255,17 @@ export default function BowlScene({ progress, onStrike, active, onReady }) {
   )
 }
 
+function shrink(src, w, h) {
+  const c = document.createElement('canvas')
+  c.width = w
+  c.height = h
+  const x = c.getContext('2d')
+  x.imageSmoothingEnabled = true
+  x.imageSmoothingQuality = 'high'
+  x.drawImage(src, 0, 0, w, h)
+  return c
+}
+
 // Recorder hooks: the capture script sets a scroll position, draws, and reads back the picture
 // plus where the bowl is on screen (so clicks on the bowl still work in the picture version).
 function CaptureHooks({ progress }) {
@@ -268,13 +279,14 @@ function CaptureHooks({ progress }) {
         progress.current = p
         capClock.t = p * 14
       },
-      shot(quality = 0.74) {
+      // outW/outH: render bigger, then shrink with high-quality smoothing (crisper edges)
+      shot(quality = 0.74, outW = 0, outH = 0) {
         advance(performance.now())
         c.set(0, 0.45, 0).project(camera)
         a.set(-1.05, 0.45, 0).project(camera)
         b.set(1.05, 0.45, 0).project(camera)
         return {
-          url: gl.domElement.toDataURL('image/webp', quality),
+          url: outW ? shrink(gl.domElement, outW, outH).toDataURL('image/webp', quality) : gl.domElement.toDataURL('image/webp', quality),
           bowl: [+((c.x + 1) / 2).toFixed(4), +((1 - c.y) / 2).toFixed(4), +(Math.abs(b.x - a.x) / 4).toFixed(4)],
         }
       },
