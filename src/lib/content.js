@@ -17,9 +17,9 @@ export const GATHERINGS = [
   {
     id: '2026-12-13',
     title: 'Grief Gathering',
-    date: '2026-12-13T15:00:00-07:00',
+    date: '2026-12-13T13:00:00-07:00',
     dateLabel: 'Sunday, December 13',
-    timeLabel: '3:00 PM',
+    timeLabel: '1:00 – 3:00 PM',
     place: '1708 E. 5550 S., Suite 19',
     town: 'South Ogden, UT 84403',
     mapHref: 'https://maps.apple.com/?q=1708+E+5550+S+Suite+19,+South+Ogden,+UT+84403',
